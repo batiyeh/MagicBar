@@ -13,7 +13,6 @@
 		017744442465F1E700D3F7C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 017744432465F1E700D3F7C9 /* Preview Assets.xcassets */; };
 		017744472465F1E700D3F7C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017744452465F1E700D3F7C9 /* Main.storyboard */; };
 		017744532465F1E700D3F7C9 /* MagicBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017744522465F1E700D3F7C9 /* MagicBarTests.swift */; };
-		0177445E2465F1E700D3F7C9 /* MagicBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0177445D2465F1E700D3F7C9 /* MagicBarUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +45,6 @@
 		017744522465F1E700D3F7C9 /* MagicBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicBarTests.swift; sourceTree = "<group>"; };
 		017744542465F1E700D3F7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		017744592465F1E700D3F7C9 /* MagicBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0177445D2465F1E700D3F7C9 /* MagicBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicBarUITests.swift; sourceTree = "<group>"; };
-		0177445F2465F1E700D3F7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +77,6 @@
 			children = (
 				0177443B2465F1E600D3F7C9 /* MagicBar */,
 				017744512465F1E700D3F7C9 /* MagicBarTests */,
-				0177445C2465F1E700D3F7C9 /* MagicBarUITests */,
 				0177443A2465F1E600D3F7C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,15 +120,6 @@
 				017744542465F1E700D3F7C9 /* Info.plist */,
 			);
 			path = MagicBarTests;
-			sourceTree = "<group>";
-		};
-		0177445C2465F1E700D3F7C9 /* MagicBarUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0177445D2465F1E700D3F7C9 /* MagicBarUITests.swift */,
-				0177445F2465F1E700D3F7C9 /* Info.plist */,
-			);
-			path = MagicBarUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0177445E2465F1E700D3F7C9 /* MagicBarUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
