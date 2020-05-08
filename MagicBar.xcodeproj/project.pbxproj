@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0177443D2465F1E600D3F7C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0177443C2465F1E600D3F7C9 /* AppDelegate.swift */; };
+		0177443F2465F1E600D3F7C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0177443E2465F1E600D3F7C9 /* ContentView.swift */; };
+		017744412465F1E700D3F7C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 017744402465F1E700D3F7C9 /* Assets.xcassets */; };
+		017744442465F1E700D3F7C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 017744432465F1E700D3F7C9 /* Preview Assets.xcassets */; };
+		017744472465F1E700D3F7C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017744452465F1E700D3F7C9 /* Main.storyboard */; };
+		017744532465F1E700D3F7C9 /* MagicBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017744522465F1E700D3F7C9 /* MagicBarTests.swift */; };
+		0177445E2465F1E700D3F7C9 /* MagicBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0177445D2465F1E700D3F7C9 /* MagicBarUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0177444F2465F1E700D3F7C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 017744312465F1E600D3F7C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 017744382465F1E600D3F7C9;
+			remoteInfo = MagicBar;
+		};
+		0177445A2465F1E700D3F7C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 017744312465F1E600D3F7C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 017744382465F1E600D3F7C9;
+			remoteInfo = MagicBar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		017744392465F1E600D3F7C9 /* MagicBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0177443C2465F1E600D3F7C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0177443E2465F1E600D3F7C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		017744402465F1E700D3F7C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		017744432465F1E700D3F7C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		017744462465F1E700D3F7C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		017744482465F1E700D3F7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		017744492465F1E700D3F7C9 /* MagicBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MagicBar.entitlements; sourceTree = "<group>"; };
+		0177444E2465F1E700D3F7C9 /* MagicBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		017744522465F1E700D3F7C9 /* MagicBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicBarTests.swift; sourceTree = "<group>"; };
+		017744542465F1E700D3F7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		017744592465F1E700D3F7C9 /* MagicBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0177445D2465F1E700D3F7C9 /* MagicBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicBarUITests.swift; sourceTree = "<group>"; };
+		0177445F2465F1E700D3F7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		017744362465F1E600D3F7C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0177444B2465F1E700D3F7C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		017744562465F1E700D3F7C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		017744302465F1E600D3F7C9 = {
+			isa = PBXGroup;
+			children = (
+				0177443B2465F1E600D3F7C9 /* MagicBar */,
+				017744512465F1E700D3F7C9 /* MagicBarTests */,
+				0177445C2465F1E700D3F7C9 /* MagicBarUITests */,
+				0177443A2465F1E600D3F7C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0177443A2465F1E600D3F7C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				017744392465F1E600D3F7C9 /* MagicBar.app */,
+				0177444E2465F1E700D3F7C9 /* MagicBarTests.xctest */,
+				017744592465F1E700D3F7C9 /* MagicBarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0177443B2465F1E600D3F7C9 /* MagicBar */ = {
+			isa = PBXGroup;
+			children = (
+				0177443C2465F1E600D3F7C9 /* AppDelegate.swift */,
+				0177443E2465F1E600D3F7C9 /* ContentView.swift */,
+				017744402465F1E700D3F7C9 /* Assets.xcassets */,
+				017744452465F1E700D3F7C9 /* Main.storyboard */,
+				017744482465F1E700D3F7C9 /* Info.plist */,
+				017744492465F1E700D3F7C9 /* MagicBar.entitlements */,
+				017744422465F1E700D3F7C9 /* Preview Content */,
+			);
+			path = MagicBar;
+			sourceTree = "<group>";
+		};
+		017744422465F1E700D3F7C9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				017744432465F1E700D3F7C9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		017744512465F1E700D3F7C9 /* MagicBarTests */ = {
+			isa = PBXGroup;
+			children = (
+				017744522465F1E700D3F7C9 /* MagicBarTests.swift */,
+				017744542465F1E700D3F7C9 /* Info.plist */,
+			);
+			path = MagicBarTests;
+			sourceTree = "<group>";
+		};
+		0177445C2465F1E700D3F7C9 /* MagicBarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0177445D2465F1E700D3F7C9 /* MagicBarUITests.swift */,
+				0177445F2465F1E700D3F7C9 /* Info.plist */,
+			);
+			path = MagicBarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		017744382465F1E600D3F7C9 /* MagicBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 017744622465F1E700D3F7C9 /* Build configuration list for PBXNativeTarget "MagicBar" */;
+			buildPhases = (
+				017744352465F1E600D3F7C9 /* Sources */,
+				017744362465F1E600D3F7C9 /* Frameworks */,
+				017744372465F1E600D3F7C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MagicBar;
+			productName = MagicBar;
+			productReference = 017744392465F1E600D3F7C9 /* MagicBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0177444D2465F1E700D3F7C9 /* MagicBarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 017744652465F1E700D3F7C9 /* Build configuration list for PBXNativeTarget "MagicBarTests" */;
+			buildPhases = (
+				0177444A2465F1E700D3F7C9 /* Sources */,
+				0177444B2465F1E700D3F7C9 /* Frameworks */,
+				0177444C2465F1E700D3F7C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				017744502465F1E700D3F7C9 /* PBXTargetDependency */,
+			);
+			name = MagicBarTests;
+			productName = MagicBarTests;
+			productReference = 0177444E2465F1E700D3F7C9 /* MagicBarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		017744582465F1E700D3F7C9 /* MagicBarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 017744682465F1E700D3F7C9 /* Build configuration list for PBXNativeTarget "MagicBarUITests" */;
+			buildPhases = (
+				017744552465F1E700D3F7C9 /* Sources */,
+				017744562465F1E700D3F7C9 /* Frameworks */,
+				017744572465F1E700D3F7C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0177445B2465F1E700D3F7C9 /* PBXTargetDependency */,
+			);
+			name = MagicBarUITests;
+			productName = MagicBarUITests;
+			productReference = 017744592465F1E700D3F7C9 /* MagicBarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		017744312465F1E600D3F7C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Brian Atiyeh";
+				TargetAttributes = {
+					017744382465F1E600D3F7C9 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					0177444D2465F1E700D3F7C9 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 017744382465F1E600D3F7C9;
+					};
+					017744582465F1E700D3F7C9 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 017744382465F1E600D3F7C9;
+					};
+				};
+			};
+			buildConfigurationList = 017744342465F1E600D3F7C9 /* Build configuration list for PBXProject "MagicBar" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 017744302465F1E600D3F7C9;
+			productRefGroup = 0177443A2465F1E600D3F7C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				017744382465F1E600D3F7C9 /* MagicBar */,
+				0177444D2465F1E700D3F7C9 /* MagicBarTests */,
+				017744582465F1E700D3F7C9 /* MagicBarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		017744372465F1E600D3F7C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				017744472465F1E700D3F7C9 /* Main.storyboard in Resources */,
+				017744442465F1E700D3F7C9 /* Preview Assets.xcassets in Resources */,
+				017744412465F1E700D3F7C9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0177444C2465F1E700D3F7C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		017744572465F1E700D3F7C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		017744352465F1E600D3F7C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0177443F2465F1E600D3F7C9 /* ContentView.swift in Sources */,
+				0177443D2465F1E600D3F7C9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0177444A2465F1E700D3F7C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				017744532465F1E700D3F7C9 /* MagicBarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		017744552465F1E700D3F7C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0177445E2465F1E700D3F7C9 /* MagicBarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		017744502465F1E700D3F7C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 017744382465F1E600D3F7C9 /* MagicBar */;
+			targetProxy = 0177444F2465F1E700D3F7C9 /* PBXContainerItemProxy */;
+		};
+		0177445B2465F1E700D3F7C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 017744382465F1E600D3F7C9 /* MagicBar */;
+			targetProxy = 0177445A2465F1E700D3F7C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		017744452465F1E700D3F7C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				017744462465F1E700D3F7C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		017744602465F1E700D3F7C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		017744612465F1E700D3F7C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		017744632465F1E700D3F7C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MagicBar/MagicBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"MagicBar/Preview Content\"";
+				DEVELOPMENT_TEAM = 43T987R38X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MagicBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianatiyeh.MagicBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		017744642465F1E700D3F7C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MagicBar/MagicBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"MagicBar/Preview Content\"";
+				DEVELOPMENT_TEAM = 43T987R38X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MagicBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianatiyeh.MagicBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		017744662465F1E700D3F7C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 43T987R38X;
+				INFOPLIST_FILE = MagicBarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianatiyeh.MagicBarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicBar.app/Contents/MacOS/MagicBar";
+			};
+			name = Debug;
+		};
+		017744672465F1E700D3F7C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 43T987R38X;
+				INFOPLIST_FILE = MagicBarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianatiyeh.MagicBarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicBar.app/Contents/MacOS/MagicBar";
+			};
+			name = Release;
+		};
+		017744692465F1E700D3F7C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 43T987R38X;
+				INFOPLIST_FILE = MagicBarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianatiyeh.MagicBarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MagicBar;
+			};
+			name = Debug;
+		};
+		0177446A2465F1E700D3F7C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 43T987R38X;
+				INFOPLIST_FILE = MagicBarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianatiyeh.MagicBarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MagicBar;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		017744342465F1E600D3F7C9 /* Build configuration list for PBXProject "MagicBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				017744602465F1E700D3F7C9 /* Debug */,
+				017744612465F1E700D3F7C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		017744622465F1E700D3F7C9 /* Build configuration list for PBXNativeTarget "MagicBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				017744632465F1E700D3F7C9 /* Debug */,
+				017744642465F1E700D3F7C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		017744652465F1E700D3F7C9 /* Build configuration list for PBXNativeTarget "MagicBarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				017744662465F1E700D3F7C9 /* Debug */,
+				017744672465F1E700D3F7C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		017744682465F1E700D3F7C9 /* Build configuration list for PBXNativeTarget "MagicBarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				017744692465F1E700D3F7C9 /* Debug */,
+				0177446A2465F1E700D3F7C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 017744312465F1E600D3F7C9 /* Project object */;
+}
