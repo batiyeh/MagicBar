@@ -1,0 +1,44 @@
+PODS:
+  - HotKey (0.1.2)
+  - Nimble (8.0.7)
+  - RxBlocking (5.1.1):
+    - RxSwift (~> 5)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - RxTest (5.1.1):
+    - RxSwift (~> 5)
+
+DEPENDENCIES:
+  - HotKey
+  - Nimble
+  - RxBlocking
+  - RxCocoa
+  - RxSwift
+  - RxTest
+
+SPEC REPOS:
+  trunk:
+    - HotKey
+    - Nimble
+    - RxBlocking
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - RxTest
+
+SPEC CHECKSUMS:
+  HotKey: ad59450195936c10992438c4210f673de5aee43e
+  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
+  RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
+
+PODFILE CHECKSUM: f0e8f037187b1bc706795fe0c321fe1a1e036081
+
+COCOAPODS: 1.8.4

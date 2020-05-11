@@ -1,0 +1,6 @@
+framework module Pods_MagicBar {
+  umbrella header "Pods-MagicBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

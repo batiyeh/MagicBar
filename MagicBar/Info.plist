@@ -34,6 +34,8 @@
 	<true/>
 	<key>LSUIElement</key>
 	<true/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>This app uses bluetooth to connect to your Magic Mouse.</string>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 </dict>
