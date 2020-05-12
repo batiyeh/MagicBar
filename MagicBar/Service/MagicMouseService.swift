@@ -10,11 +10,6 @@ import Foundation
 import IOBluetooth
 import RxSwift
 
-public protocol MagicMouseServicable {
-    var magicMouse: MagicMouse? { get }
-    func connect()
-}
-
 enum MagicMouseState {
     case unpaired
     case disconnected
@@ -22,19 +17,29 @@ enum MagicMouseState {
     case unknown
 }
 
+public protocol MagicMouseServicable {
+    var magicMouse: MagicMouse? { get }
+    func connect()
+}
+
 public class MagicMouseService: MagicMouseServicable {
-    let identifier = "Magic Mouse 2"
     public var magicMouse: MagicMouse?
+    private let notificationService: NotificationService
     
-    init() {
+    final let identifier = "Magic Mouse 2"
+    
+    init(notificationService: NotificationService = NotificationService()) {
+        self.notificationService = notificationService
+        self.notificationService.requestNotificationAccess()
         obtainDevice()
     }
     
     public func connect() {
+        openConnection()
         if let magicMouse = magicMouse {
             switch(magicMouse.state) {
             case .disconnected:
-                magicMouse.device.openConnection()
+                openConnection()
             case .unpaired:
                 pair()
             default:
@@ -43,10 +48,18 @@ public class MagicMouseService: MagicMouseServicable {
         }
     }
     
-    public func pair() {
+    func openConnection() {
+        if let magicMouse = magicMouse {
+            let response = magicMouse.device.openConnection()
+            handleConnectResponse(response: response, attemptPair: true)
+        }
+    }
+    
+    func pair() {
         if let magicMouse = magicMouse, magicMouse.state == .unpaired {
             if let devicePair = IOBluetoothDevicePair(device: magicMouse.device) {
-                devicePair.start()
+                let response = devicePair.start()
+                handleConnectResponse(response: response)
             }
         }
     }
@@ -78,5 +91,22 @@ public class MagicMouseService: MagicMouseServicable {
         }
         
         return mouse
+    }
+    
+    private func handleConnectResponse(response: IOReturn, attemptPair: Bool = false) {
+        switch response {
+        case kIOReturnSuccess:
+            return
+        case kIOReturnError:
+            if attemptPair {
+                pair()
+            } else {
+                notificationService.send(title: Strings.Notifications.failedToConnect, body: Strings.Notifications.failedToConnect)
+            }
+        case kIOReturnBusy:
+            notificationService.send(title: Strings.Notifications.failedToConnect, body: Strings.Notifications.deviceBusy)
+        default:
+            notificationService.send(title: Strings.Notifications.failedToConnect, body: Strings.Notifications.failedToConnect)
+        }
     }
 }

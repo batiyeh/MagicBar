@@ -71,8 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func connectToMagicMouse() {
         if let _ = self.statusBarItem.button {
-//            bluetoothService.connect()
-            print("connect!")
+            bluetoothService.connect()
         }
     }
     
@@ -88,4 +87,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarItem.menu = nil
     }
 }
-

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0163853B2469C1E300EBFC5D /* MagicMouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163853A2469C1E300EBFC5D /* MagicMouse.swift */; };
+		016385402469D81200EBFC5D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163853F2469D81200EBFC5D /* NotificationService.swift */; };
+		01638542246B355F00EBFC5D /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01638541246B355F00EBFC5D /* Factory.swift */; };
+		01638545246B358B00EBFC5D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01638544246B358B00EBFC5D /* Strings.swift */; };
 		0177443D2465F1E600D3F7C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0177443C2465F1E600D3F7C9 /* AppDelegate.swift */; };
 		0177443F2465F1E600D3F7C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0177443E2465F1E600D3F7C9 /* ContentView.swift */; };
 		017744412465F1E700D3F7C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 017744402465F1E700D3F7C9 /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		0163853A2469C1E300EBFC5D /* MagicMouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicMouse.swift; sourceTree = "<group>"; };
+		0163853F2469D81200EBFC5D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		01638541246B355F00EBFC5D /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		01638544246B358B00EBFC5D /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		017744392465F1E600D3F7C9 /* MagicBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0177443C2465F1E600D3F7C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0177443E2465F1E600D3F7C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +100,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		01638543246B356400EBFC5D /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				01638541246B355F00EBFC5D /* Factory.swift */,
+				01638544246B358B00EBFC5D /* Strings.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		017744302465F1E600D3F7C9 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +133,7 @@
 		0177443B2465F1E600D3F7C9 /* MagicBar */ = {
 			isa = PBXGroup;
 			children = (
+				01638543246B356400EBFC5D /* Factory */,
 				016385392469C1D200EBFC5D /* Models */,
 				0177446C246648CB00D3F7C9 /* Service */,
 				0177446B246648A300D3F7C9 /* AppDelegate */,
@@ -160,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				0177446D246648DF00D3F7C9 /* MagicMouseService.swift */,
+				0163853F2469D81200EBFC5D /* NotificationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -402,8 +419,11 @@
 			files = (
 				0177443F2465F1E600D3F7C9 /* ContentView.swift in Sources */,
 				0163853B2469C1E300EBFC5D /* MagicMouse.swift in Sources */,
+				01638542246B355F00EBFC5D /* Factory.swift in Sources */,
 				0177446E246648DF00D3F7C9 /* MagicMouseService.swift in Sources */,
+				016385402469D81200EBFC5D /* NotificationService.swift in Sources */,
 				0177443D2465F1E600D3F7C9 /* AppDelegate.swift in Sources */,
+				01638545246B358B00EBFC5D /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
