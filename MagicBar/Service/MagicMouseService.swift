@@ -20,6 +20,7 @@ enum MagicMouseState {
 public protocol MagicMouseServicable {
     var magicMouse: MagicMouse? { get }
     func connect()
+    func findDevice()
 }
 
 public class MagicMouseService: MagicMouseServicable {
@@ -31,7 +32,7 @@ public class MagicMouseService: MagicMouseServicable {
     init(notificationService: NotificationService = NotificationService()) {
         self.notificationService = notificationService
         self.notificationService.requestNotificationAccess()
-        obtainDevice()
+        findDevice()
     }
     
     public func connect() {
@@ -44,6 +45,23 @@ public class MagicMouseService: MagicMouseServicable {
                 pair()
             default:
                 return
+            }
+        } else {
+            notificationService.send(title: Strings.Notifications.failedToConnect, body: Strings.Notifications.deviceNotFound)
+        }
+    }
+    
+    public func findDevice() {
+        guard let devices = IOBluetoothDevice.pairedDevices() else { return }
+        
+        for item in devices {
+            if let device = item as? IOBluetoothDevice, let services = device.services {
+                for service in services {
+                    if let serviceRecord = service as? IOBluetoothSDPServiceRecord,
+                        serviceRecord.getServiceName() == identifier {
+                        magicMouse = define(magicMouse: device)
+                    }
+                }
             }
         }
     }
@@ -60,21 +78,6 @@ public class MagicMouseService: MagicMouseServicable {
             if let devicePair = IOBluetoothDevicePair(device: magicMouse.device) {
                 let response = devicePair.start()
                 handleConnectResponse(response: response)
-            }
-        }
-    }
-    
-    func obtainDevice() {
-        guard let devices = IOBluetoothDevice.pairedDevices() else { return }
-        
-        for item in devices {
-            if let device = item as? IOBluetoothDevice, let services = device.services {
-                for service in services {
-                    if let serviceRecord = service as? IOBluetoothSDPServiceRecord,
-                        serviceRecord.getServiceName() == identifier {
-                        magicMouse = define(magicMouse: device)
-                    }
-                }
             }
         }
     }

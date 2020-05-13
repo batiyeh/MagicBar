@@ -11,7 +11,8 @@ import Foundation
 public struct Strings {
     public struct Notifications {
         static let failedToConnect = "Failed to Connect"
-        static let pleaseTryAgain = "Your Magic Mouse failed to connect to the Mac. Please try again."
-        static let deviceBusy = "Your Magic Mouse failed to connect to the Mac because the device was busy. Please try again."
+        static let pleaseTryAgain = "Failed to connect to your Magic Mouse. Please try again."
+        static let deviceBusy = "The device was busy. Please try again."
+        static let deviceNotFound = "The device could not be found. Please turn the mouse on and off before trying again."
     }
 }

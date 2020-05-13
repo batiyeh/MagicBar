@@ -71,6 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func connectToMagicMouse() {
         if let _ = self.statusBarItem.button {
+            bluetoothService.findDevice()
             bluetoothService.connect()
         }
     }
