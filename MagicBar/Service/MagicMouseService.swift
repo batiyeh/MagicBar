@@ -26,6 +26,7 @@ public protocol MagicMouseServicable {
 public class MagicMouseService: MagicMouseServicable {
     public var magicMouse: MagicMouse?
     private let notificationService: NotificationService
+    private let defaults = UserDefaults.standard
     
     final let identifier = "Magic Mouse 2"
     
@@ -35,6 +36,58 @@ public class MagicMouseService: MagicMouseServicable {
         findDevice()
     }
     
+    public func findDevice() {
+        if let savedDevice = getSavedDevice() {
+            magicMouse = define(magicMouse: savedDevice)
+            print(magicMouse)
+        } else {
+            getDeviceFromServiceName()
+        }
+    }
+    
+    func getDeviceFromServiceName() {
+        guard let devices = IOBluetoothDevice.pairedDevices() else { return }
+        
+        for item in devices {
+            if let device = item as? IOBluetoothDevice, let services = device.services {
+                for service in services {
+                    if let serviceRecord = service as? IOBluetoothSDPServiceRecord,
+                        serviceRecord.getServiceName() == identifier {
+                        saveAddress(device: device)
+                        magicMouse = define(magicMouse: device)
+                    }
+                }
+            }
+        }
+    }
+    
+    func saveAddress(device: IOBluetoothDevice) {
+        defaults.set(device.addressString, forKey: "MagicMouse")
+    }
+    
+    func getSavedDevice() -> IOBluetoothDevice? {
+        let address = defaults.string(forKey: "MagicMouse")
+        return IOBluetoothDevice(addressString: address)
+    }
+    
+    
+    private func define(magicMouse device: Device) -> MagicMouse {
+        var mouse = MagicMouse(device: device, state: .unknown)
+        
+        if device.isPaired() && device.isConnected() {
+            mouse.state = .connected
+        } else if device.isPaired() && !device.isConnected() {
+            mouse.state = .disconnected
+        } else if !device.isPaired() {
+            mouse.state = .unpaired
+        }
+        
+        return mouse
+    }
+}
+
+// MARK: Device Connection
+extension MagicMouseService {
     public func connect() {
         openConnection()
         if let magicMouse = magicMouse {
@@ -48,21 +101,6 @@ public class MagicMouseService: MagicMouseServicable {
             }
         } else {
             notificationService.send(title: Strings.Notifications.failedToConnect, body: Strings.Notifications.deviceNotFound)
-        }
-    }
-    
-    public func findDevice() {
-        guard let devices = IOBluetoothDevice.pairedDevices() else { return }
-        
-        for item in devices {
-            if let device = item as? IOBluetoothDevice, let services = device.services {
-                for service in services {
-                    if let serviceRecord = service as? IOBluetoothSDPServiceRecord,
-                        serviceRecord.getServiceName() == identifier {
-                        magicMouse = define(magicMouse: device)
-                    }
-                }
-            }
         }
     }
     
@@ -82,21 +120,7 @@ public class MagicMouseService: MagicMouseServicable {
         }
     }
     
-    private func define(magicMouse device: Device) -> MagicMouse {
-        var mouse = MagicMouse(device: device, state: .unknown)
-        
-        if device.isPaired() && device.isConnected() {
-            mouse.state = .connected
-        } else if device.isPaired() && !device.isConnected() {
-            mouse.state = .disconnected
-        } else if !device.isPaired() {
-            mouse.state = .unpaired
-        }
-        
-        return mouse
-    }
-    
-    private func handleConnectResponse(response: IOReturn, attemptPair: Bool = false) {
+    func handleConnectResponse(response: IOReturn, attemptPair: Bool = false) {
         switch response {
         case kIOReturnSuccess:
             return
