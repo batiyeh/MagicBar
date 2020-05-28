@@ -1,5 +1,5 @@
 //
-//  MagicMouse.swift
+//  Mouse.swift
 //  MagicBar
 //
 //  Created by Atiyeh, Brian (B.) on 5/11/20.
@@ -11,7 +11,7 @@ import IOBluetooth
 
 public typealias Device = IOBluetoothDevice
 
-public struct MagicMouse {
+public struct Mouse {
     let device: Device
-    var state: MagicMouseState
+    var state: MouseState
 }

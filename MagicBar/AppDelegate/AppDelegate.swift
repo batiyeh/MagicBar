@@ -15,7 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
     var statusBarItem: NSStatusItem!
     var statusBarMenu: NSMenu?
-    let bluetoothService = MagicMouseService()
+    let mouseConnectService = MouseConnectService()
+    let mouseTrackingService = MouseTrackingService()
     
     private var hotkey: HotKey? {
         didSet {
@@ -31,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         createApp()
         createMenu()
         assignHotkey()
+        mouseTrackingService.findDevice()
     }
     
     func createApp() {
@@ -71,8 +73,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func connectToMagicMouse() {
         if let _ = self.statusBarItem.button {
-            bluetoothService.findDevice()
-            bluetoothService.connect()
+            mouseTrackingService.findDevice()
+            mouseConnectService.connect()
         }
     }
     

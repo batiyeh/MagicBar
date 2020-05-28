@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0163853B2469C1E300EBFC5D /* MagicMouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163853A2469C1E300EBFC5D /* MagicMouse.swift */; };
+		012BC827247EA0A50034A8E1 /* MouseTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BC826247EA0A50034A8E1 /* MouseTrackingService.swift */; };
+		0163853B2469C1E300EBFC5D /* Mouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163853A2469C1E300EBFC5D /* Mouse.swift */; };
 		016385402469D81200EBFC5D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163853F2469D81200EBFC5D /* NotificationService.swift */; };
 		01638542246B355F00EBFC5D /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01638541246B355F00EBFC5D /* Factory.swift */; };
 		01638545246B358B00EBFC5D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01638544246B358B00EBFC5D /* Strings.swift */; };
@@ -17,7 +18,7 @@
 		017744442465F1E700D3F7C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 017744432465F1E700D3F7C9 /* Preview Assets.xcassets */; };
 		017744472465F1E700D3F7C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017744452465F1E700D3F7C9 /* Main.storyboard */; };
 		017744532465F1E700D3F7C9 /* MagicBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017744522465F1E700D3F7C9 /* MagicBarTests.swift */; };
-		0177446E246648DF00D3F7C9 /* MagicMouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0177446D246648DF00D3F7C9 /* MagicMouseService.swift */; };
+		0177446E246648DF00D3F7C9 /* MouseConnectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0177446D246648DF00D3F7C9 /* MouseConnectService.swift */; };
 		9084A3EACC78FED50A8F3585 /* Pods_MagicBarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CE6A4D687ABBCAE23B6569 /* Pods_MagicBarTests.framework */; };
 		ACD3C6E72F6EFCB9390C9FBA /* Pods_MagicBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4B3B02D272199641B992DB /* Pods_MagicBar.framework */; };
 /* End PBXBuildFile section */
@@ -40,7 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0163853A2469C1E300EBFC5D /* MagicMouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicMouse.swift; sourceTree = "<group>"; };
+		012BC826247EA0A50034A8E1 /* MouseTrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseTrackingService.swift; sourceTree = "<group>"; };
+		0163853A2469C1E300EBFC5D /* Mouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
 		0163853F2469D81200EBFC5D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		01638541246B355F00EBFC5D /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		01638544246B358B00EBFC5D /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		017744522465F1E700D3F7C9 /* MagicBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicBarTests.swift; sourceTree = "<group>"; };
 		017744542465F1E700D3F7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		017744592465F1E700D3F7C9 /* MagicBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0177446D246648DF00D3F7C9 /* MagicMouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicMouseService.swift; sourceTree = "<group>"; };
+		0177446D246648DF00D3F7C9 /* MouseConnectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseConnectService.swift; sourceTree = "<group>"; };
 		2CF6983553469CBE9CA2E0F8 /* Pods-MagicBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicBar.debug.xcconfig"; path = "Target Support Files/Pods-MagicBar/Pods-MagicBar.debug.xcconfig"; sourceTree = "<group>"; };
 		2FB013322F1C2B6115E0B5A3 /* Pods-MagicBarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicBarTests.release.xcconfig"; path = "Target Support Files/Pods-MagicBarTests/Pods-MagicBarTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A025F3F1428234F4A42EC3E /* Pods-MagicBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicBar.release.xcconfig"; path = "Target Support Files/Pods-MagicBar/Pods-MagicBar.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,7 +97,7 @@
 		016385392469C1D200EBFC5D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0163853A2469C1E300EBFC5D /* MagicMouse.swift */,
+				0163853A2469C1E300EBFC5D /* Mouse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,7 +177,8 @@
 		0177446C246648CB00D3F7C9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				0177446D246648DF00D3F7C9 /* MagicMouseService.swift */,
+				0177446D246648DF00D3F7C9 /* MouseConnectService.swift */,
+				012BC826247EA0A50034A8E1 /* MouseTrackingService.swift */,
 				0163853F2469D81200EBFC5D /* NotificationService.swift */,
 			);
 			path = Service;
@@ -417,10 +420,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012BC827247EA0A50034A8E1 /* MouseTrackingService.swift in Sources */,
 				0177443F2465F1E600D3F7C9 /* ContentView.swift in Sources */,
-				0163853B2469C1E300EBFC5D /* MagicMouse.swift in Sources */,
+				0163853B2469C1E300EBFC5D /* Mouse.swift in Sources */,
 				01638542246B355F00EBFC5D /* Factory.swift in Sources */,
-				0177446E246648DF00D3F7C9 /* MagicMouseService.swift in Sources */,
+				0177446E246648DF00D3F7C9 /* MouseConnectService.swift in Sources */,
 				016385402469D81200EBFC5D /* NotificationService.swift in Sources */,
 				0177443D2465F1E600D3F7C9 /* AppDelegate.swift in Sources */,
 				01638545246B358B00EBFC5D /* Strings.swift in Sources */,

@@ -10,11 +10,11 @@ import Foundation
 import UserNotifications
 
 public protocol NotificationServicable {
-    var sendable: Bool { get }
-    func send()
+    func send(title: String, body: String, caption: String?)
+    func requestNotificationAccess()
 }
 
-class NotificationService {
+class NotificationService: NotificationServicable {
     private typealias Notification = NSUserNotification
     public var requested = false
     let notificationCenter: UNUserNotificationCenter
@@ -23,7 +23,7 @@ class NotificationService {
         self.notificationCenter = notificationCenter
     }
     
-    func send(title: String, body: String, caption: String? = nil) {
+    func send(title: String, body: String, caption: String?) {
         notificationCenter.getNotificationSettings { settings in
             guard (settings.authorizationStatus == .authorized) ||
                   (settings.authorizationStatus == .provisional) else { return }
