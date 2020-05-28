@@ -15,8 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
     var statusBarItem: NSStatusItem!
     var statusBarMenu: NSMenu?
-    let mouseConnectService = MouseConnectService()
-    let mouseTrackingService = MouseTrackingService()
+    let mouseTrackingService: MouseTrackingServicable
+    let mouseConnectService: MouseConnectServicable
     
     private var hotkey: HotKey? {
         didSet {
@@ -26,6 +26,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self?.connectToMagicMouse()
             }
         }
+    }
+    
+    override init() {
+        mouseTrackingService = MouseTrackingService()
+        mouseConnectService = MouseConnectService(mouseTrackingService: mouseTrackingService,
+                                                      notificationService: NotificationService())
+        super.init()
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -38,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func createApp() {
         self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
         if let button = self.statusBarItem.button {
-            button.image = NSImage(named: "MagicBarIcon")
+            button.image = NSImage(named: "MagicBarMenuIcon")
             button.action = #selector(menuItemClicked(sender:))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
@@ -47,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func createMenu() {
         let menu = NSMenu()
         
-        menu.addItem(NSMenuItem(title: "Settings", action: #selector(openSettings(_:)), keyEquivalent: ""))
+//        menu.addItem(NSMenuItem(title: "Settings", action: #selector(openSettings(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Buy Me A Coffee", action: #selector(openBuyMeCoffee(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit MagicBar", action: #selector(NSApplication.terminate(_:)), keyEquivalent: ""))
@@ -83,7 +90,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func openBuyMeCoffee(_ sender: AnyObject?) {
-        print("Buy me a coffee")
+        if let url = URL(string: "https://www.buymeacoffee.com/batiyeh") {
+            NSWorkspace.shared.open(url)
+        }
     }
     
     @objc func menuDidClose(_ menu: NSMenu) {

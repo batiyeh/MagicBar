@@ -8,6 +8,7 @@
 
 import Foundation
 import IOBluetooth
+import RxSwift
 
 public enum MouseState {
     case unpaired
@@ -17,18 +18,27 @@ public enum MouseState {
 }
 
 public protocol MouseTrackingServicable {
-    var magicMouse: Mouse? { get }
+    func getDevice() -> Mouse?
     func findDevice()
 }
 
 public class MouseTrackingService: MouseTrackingServicable {
-    public var magicMouse: Mouse?
-    private let defaults = UserDefaults.standard
-    final let identifier = "Magic Mouse 2"
+    private final let identifier = "Magic Mouse 2"
+    private var mouse: Mouse?
+    private let defaults: UserDefaults
+    
+    public init(defaults: UserDefaults = UserDefaults.standard) {
+        self.defaults = defaults
+    }
+    
+    public func getDevice() -> Mouse? {
+        return mouse
+    }
     
     public func findDevice() {
-        if let savedDevice = getSavedDevice() {
-            magicMouse = define(magicMouse: savedDevice)
+        if let mouse = getSavedDevice() {
+            let device = define(magicMouse: mouse)
+            set(mouse: device)
         } else {
             getDeviceFromServiceName()
         }
@@ -42,23 +52,13 @@ public class MouseTrackingService: MouseTrackingServicable {
                 for service in services {
                     if let serviceRecord = service as? IOBluetoothSDPServiceRecord,
                         serviceRecord.getServiceName() == identifier {
-                        saveAddress(device: device)
-                        magicMouse = define(magicMouse: device)
+                        save(device: device)
+                        set(mouse: define(magicMouse: device))
                     }
                 }
             }
         }
     }
-    
-    func saveAddress(device: IOBluetoothDevice) {
-        defaults.set(device.addressString, forKey: "MagicMouse")
-    }
-    
-    func getSavedDevice() -> IOBluetoothDevice? {
-        let address = defaults.string(forKey: "MagicMouse")
-        return IOBluetoothDevice(addressString: address)
-    }
-    
     
     private func define(magicMouse device: Device) -> Mouse {
         var mouse = Mouse(device: device, state: .unknown)
@@ -72,5 +72,21 @@ public class MouseTrackingService: MouseTrackingServicable {
         }
         
         return mouse
+    }
+}
+
+// MARK: - Setters / Getters
+extension MouseTrackingService {
+    func set(mouse: Mouse) {
+        self.mouse = mouse
+    }
+    
+    func save(device: IOBluetoothDevice) {
+        defaults.set(device.addressString, forKey: "Mouse")
+    }
+    
+    func getSavedDevice() -> IOBluetoothDevice? {
+        let address = defaults.string(forKey: "Mouse")
+        return IOBluetoothDevice(addressString: address)
     }
 }

@@ -15,10 +15,11 @@ public protocol MouseConnectServicable {
 }
 
 public class MouseConnectService: MouseConnectServicable {
-    public var magicMouse: Mouse?
     private let notificationService: NotificationServicable
+    private let mouseTrackingService: MouseTrackingServicable
     
     init(mouseTrackingService: MouseTrackingServicable, notificationService: NotificationServicable) {
+        self.mouseTrackingService = mouseTrackingService
         self.notificationService = notificationService
         self.notificationService.requestNotificationAccess()
     }
@@ -29,8 +30,9 @@ public class MouseConnectService: MouseConnectServicable {
     
     public func connect() {
         openConnection()
-        if let magicMouse = magicMouse {
-            switch(magicMouse.state) {
+        
+        if let mouse = mouseTrackingService.getDevice() {
+            switch(mouse.state) {
             case .disconnected:
                 openConnection()
             case .unpaired:
@@ -46,15 +48,15 @@ public class MouseConnectService: MouseConnectServicable {
     }
     
     func openConnection() {
-        if let magicMouse = magicMouse {
-            let response = magicMouse.device.openConnection()
+        if let mouse = mouseTrackingService.getDevice() {
+            let response = mouse.device.openConnection()
             handleConnectResponse(response: response, attemptPair: true)
         }
     }
     
     func pair() {
-        if let magicMouse = magicMouse, magicMouse.state == .unpaired {
-            if let devicePair = IOBluetoothDevicePair(device: magicMouse.device) {
+        if let mouse = mouseTrackingService.getDevice(), mouse.state == .unpaired {
+            if let devicePair = IOBluetoothDevicePair(device: mouse.device) {
                 let response = devicePair.start()
                 handleConnectResponse(response: response)
             }
@@ -64,13 +66,19 @@ public class MouseConnectService: MouseConnectServicable {
     func handleConnectResponse(response: IOReturn, attemptPair: Bool = false) {
         switch response {
         case kIOReturnSuccess:
-            return
+            mouseTrackingService.findDevice()
+            if let mouse = mouseTrackingService.getDevice(),
+                mouse.device.isConnected() {
+                return
+            } else {
+                pair()
+            }
         case kIOReturnError:
             if attemptPair {
                 pair()
             } else {
                 notificationService.send(title: Strings.Notifications.failedToConnect,
-                                         body: Strings.Notifications.failedToConnect,
+                                         body: Strings.Notifications.pleaseTryAgain,
                                          caption: nil)
             }
         case kIOReturnBusy:
@@ -79,7 +87,7 @@ public class MouseConnectService: MouseConnectServicable {
                                      caption: nil)
         default:
             notificationService.send(title: Strings.Notifications.failedToConnect,
-                                     body: Strings.Notifications.failedToConnect,
+                                     body: Strings.Notifications.pleaseTryAgain,
                                      caption: nil)
         }
     }
