@@ -3,7 +3,9 @@
 <img src="https://github.com/batiyeh/MagicBar/blob/master/MagicBar/Assets.xcassets/AppIcon.appiconset/MagicBarAppIcon-256.png" width="64px"> 
 
 # MagicBar
-A MacOS (v10.10 and up) menu bar app for connecting to your Magic Mouse via keyboard shortcut
+A MacOS (10.10 and up) menu bar app for connecting to your Magic Mouse via keyboard shortcut
+
+[Download](https://github.com/batiyeh/MagicBar/releases)
 
 <a href="https://www.buymeacoffee.com/batiyeh" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" width="150"></a>
 
@@ -25,7 +27,7 @@ All you need is a keyboard shortcut.
 
 `cmd + shift + option + m`: Disconnect from your Magic Mouse
 
-Option to change keyboard shortcuts coming soon.
+*Option to change keyboard shortcuts coming soon.*
 
 
 ## Building Locally
