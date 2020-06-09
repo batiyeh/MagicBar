@@ -20,6 +20,7 @@ public enum MouseState {
 public protocol MouseTrackingServicable {
     func getDevice() -> Mouse?
     func findDevice()
+    func update(state: MouseState)
 }
 
 public class MouseTrackingService: MouseTrackingServicable {
@@ -77,6 +78,12 @@ public class MouseTrackingService: MouseTrackingServicable {
 
 // MARK: - Setters / Getters
 extension MouseTrackingService {
+    public func update(state: MouseState) {
+        if var mouse = mouse {
+            mouse.state = state
+        }
+    }
+    
     func set(mouse: Mouse) {
         self.mouse = mouse
     }

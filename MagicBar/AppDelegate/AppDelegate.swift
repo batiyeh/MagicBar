@@ -54,7 +54,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func createMenu() {
         let menu = NSMenu()
         
-//        menu.addItem(NSMenuItem(title: "Settings", action: #selector(openSettings(_:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Settings", action: #selector(openSettings(_:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Issues", action: #selector(openIssues(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Buy Me A Coffee", action: #selector(openBuyMeCoffee(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit MagicBar", action: #selector(NSApplication.terminate(_:)), keyEquivalent: ""))
@@ -91,6 +92,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func openBuyMeCoffee(_ sender: AnyObject?) {
         if let url = URL(string: "https://www.buymeacoffee.com/batiyeh") {
+            NSWorkspace.shared.open(url)
+        }
+    }
+    
+    @objc func openIssues(_ sender: AnyObject?) {
+        if let url = URL(string: "https://github.com/batiyeh/MagicBar/issues") {
             NSWorkspace.shared.open(url)
         }
     }

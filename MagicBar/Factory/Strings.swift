@@ -10,9 +10,18 @@ import Foundation
 
 public struct Strings {
     public struct Notifications {
-        static let failedToConnect = "Failed to Connect"
-        static let pleaseTryAgain = "Failed to connect to the device. Please turn it on and off before trying again."
-        static let deviceBusy = "The device was busy. Please try again."
-        static let deviceNotFound = "The device could not be found. Please turn it on and off before trying again."
+        public struct ConnectInfo {
+            public struct Success {
+                static let succeeded = "Connected"
+                static let deviceConnected = "Your device has successfully connected."
+            }
+            
+            public struct Error {
+                static let failedToConnect = "Failed to Connect"
+                static let pleaseTryAgain = "Failed to connect to the device. Please turn it on and off before trying again."
+                static let deviceBusy = "The device was busy. Please try again."
+                static let deviceNotFound = "The device could not be found. Please turn it on and off before trying again."
+            }
+        }
     }
 }
