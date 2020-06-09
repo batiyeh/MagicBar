@@ -8,7 +8,6 @@
 
 import Cocoa
 import HotKey
-import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -18,15 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let mouseTrackingService: MouseTrackingServicable
     let mouseConnectService: MouseConnectServicable
     
-    private var hotkey: HotKey? {
-        didSet {
-            guard let hotkey = hotkey else { return }
-            
-            hotkey.keyDownHandler = { [weak self] in
-                self?.connectToMagicMouse()
-            }
-        }
-    }
+    let connectHotkey = HotKey(keyCombo: KeyCombo(key: .m, modifiers: [.command, .shift]))
+    let disconnectHotkey = HotKey(keyCombo: KeyCombo(key: .m, modifiers: [.command, .shift, .option]))
     
     override init() {
         mouseTrackingService = MouseTrackingService()
@@ -39,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         createApp()
         createMenu()
         assignHotkey()
-        mouseTrackingService.findDevice()
+        let _ = mouseTrackingService.findDevice()
     }
     
     func createApp() {
@@ -54,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func createMenu() {
         let menu = NSMenu()
         
-        menu.addItem(NSMenuItem(title: "Settings", action: #selector(openSettings(_:)), keyEquivalent: ""))
+//        menu.addItem(NSMenuItem(title: "Settings", action: #selector(openSettings(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Issues", action: #selector(openIssues(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Buy Me A Coffee", action: #selector(openBuyMeCoffee(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
@@ -64,7 +56,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func assignHotkey() {
-        hotkey = HotKey(keyCombo: KeyCombo(key: .m, modifiers: [.command, .shift]))
+        connectHotkey.keyDownHandler = { [weak self] in
+            self?.connectToMouse()
+        }
+        
+        disconnectHotkey.keyDownHandler = { [weak self] in
+            self?.disconnectFromMouse()
+        }
     }
     
     @objc func menuItemClicked(sender: NSStatusBarButton) {
@@ -75,15 +73,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             statusBarItem.button?.performClick(nil)
             statusBarItem.menu = nil
         } else {
-            connectToMagicMouse()
+            connectToMouse()
         }
     }
     
-    func connectToMagicMouse() {
-        if let _ = self.statusBarItem.button {
-            mouseTrackingService.findDevice()
-            mouseConnectService.connect()
-        }
+    func connectToMouse() {
+        mouseConnectService.connect()
+    }
+    
+    func disconnectFromMouse() {
+        mouseConnectService.disconnect()
     }
     
     @objc func openSettings(_ sender: AnyObject?) {

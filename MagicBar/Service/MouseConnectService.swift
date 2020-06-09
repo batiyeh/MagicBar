@@ -12,11 +12,10 @@ import RxSwift
 
 public protocol MouseConnectServicable {
     func connect()
+    func disconnect()
 }
 
 public class MouseConnectService: MouseConnectServicable {
-    var connectObservable: Disposable?
-    
     private let notificationService: NotificationServicable
     private let mouseTrackingService: MouseTrackingServicable
     private let disposeBag = DisposeBag()
@@ -32,12 +31,14 @@ public class MouseConnectService: MouseConnectServicable {
     }
     
     public func connect() {
-        if connectObservable != nil { cancelSubscription() }
-
-        connectObservable = openConnection()
+        self.mouseTrackingService.getDevice()
+            .filter({ (mouse) -> Bool in
+                return mouse.state != .connected
+            })
+            .concatMap(openConnection)
             .delay(.seconds(2), scheduler: MainScheduler.instance)
             .concatMap({ [unowned self] response -> Observable<Mouse> in
-                return self.checkStatus()
+                return self.mouseTrackingService.getDevice()
             })
             .concatMap({ [unowned self] mouse -> Observable<IOReturn> in
                 guard mouse.state != .connected else { return Observable.just(kIOReturnSuccess) }
@@ -47,38 +48,38 @@ public class MouseConnectService: MouseConnectServicable {
                 
                 return self.pair(mouse: mouse)
             })
-            .retry(3)
+            .retry(1)
+            .timeout(.seconds(12), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] response in
                 self?.mouseTrackingService.update(state: .connected)
             }, onError: { [weak self] error in
-                if let error = error as? ConnectError {
-                    self?.notify(error: error)
-                }
-            })
-        connectObservable?.disposed(by: disposeBag)
+                self?.notify(error: error)
+            }).disposed(by: disposeBag)
     }
     
-    func openConnection() -> Observable<IOReturn> {
+    public func disconnect() {
+        self.mouseTrackingService.getDevice()
+            .concatMap(closeConnection)
+            .subscribe(onNext: { [weak self] response in
+                self?.mouseTrackingService.update(state: .disconnected)
+            }, onError: { [weak self] error in
+                self?.notify(error: error)
+            }).disposed(by: disposeBag)
+    }
+    
+    func openConnection(mouse: Mouse) -> Observable<IOReturn> {
         return Observable.create { [weak self] observer in
-            if let mouse = self?.mouseTrackingService.getDevice() {
-                let response = mouse.device.openConnection()
-                self?.handleResponse(observer: observer, response: response)
-            } else {
-                observer.onError(ConnectError.notFound)
-            }
+            let response = mouse.device.openConnection()
+            self?.handleResponse(observer: observer, response: response)
             observer.onCompleted()
             return Disposables.create()
         }
     }
     
-    func checkStatus() -> Observable<Mouse> {
+    func closeConnection(mouse: Mouse) -> Observable<IOReturn> {
         return Observable.create { [weak self] observer in
-            self?.mouseTrackingService.findDevice()
-            if let mouse = self?.mouseTrackingService.getDevice() {
-                observer.onNext(mouse)
-            } else {
-                observer.onError(ConnectError.notFound)
-            }
+            let response = mouse.device.closeConnection()
+            self?.handleResponse(observer: observer, response: response)
             observer.onCompleted()
             return Disposables.create()
         }
@@ -95,13 +96,6 @@ public class MouseConnectService: MouseConnectServicable {
             
             observer.onCompleted()
             return Disposables.create()
-        }
-    }
-    
-    func cancelSubscription() {
-        if connectObservable != nil {
-            connectObservable?.dispose()
-            connectObservable = nil
         }
     }
 }
@@ -126,13 +120,19 @@ extension MouseConnectService {
         }
     }
     
-    func notify(error: ConnectError) {
-        switch error {
-        case .busy:
-            notificationService.send(title: Strings.Notifications.ConnectInfo.Error.failedToConnect,
-                                    body: Strings.Notifications.ConnectInfo.Error.deviceBusy,
-                                    caption: nil)
-        default:
+    func notify(error: Error) {
+        if let error = error as? ConnectError {
+            switch error {
+            case .busy:
+                notificationService.send(title: Strings.Notifications.ConnectInfo.Error.failedToConnect,
+                                        body: Strings.Notifications.ConnectInfo.Error.deviceBusy,
+                                        caption: nil)
+            default:
+                notificationService.send(title: Strings.Notifications.ConnectInfo.Error.failedToConnect,
+                                         body: Strings.Notifications.ConnectInfo.Error.pleaseTryAgain,
+                                         caption: nil)
+            }
+        } else {
             notificationService.send(title: Strings.Notifications.ConnectInfo.Error.failedToConnect,
                                      body: Strings.Notifications.ConnectInfo.Error.pleaseTryAgain,
                                      caption: nil)

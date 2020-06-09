@@ -18,7 +18,7 @@ public struct Strings {
             
             public struct Error {
                 static let failedToConnect = "Failed to Connect"
-                static let pleaseTryAgain = "Failed to connect to the device. Please turn it on and off before trying again."
+                static let pleaseTryAgain = "Please try resetting the device or disconnecting it from another machine before trying again."
                 static let deviceBusy = "The device was busy. Please try again."
                 static let deviceNotFound = "The device could not be found. Please turn it on and off before trying again."
             }

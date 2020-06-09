@@ -18,35 +18,47 @@ public enum MouseState {
 }
 
 public protocol MouseTrackingServicable {
-    func getDevice() -> Mouse?
-    func findDevice()
+    var mouse: BehaviorSubject<Mouse?> { get }
+    
+    func getDevice() -> Observable<Mouse>
+    func findDevice() -> Mouse?
     func update(state: MouseState)
 }
 
 public class MouseTrackingService: MouseTrackingServicable {
     private final let identifier = "Magic Mouse 2"
-    private var mouse: Mouse?
     private let defaults: UserDefaults
+    
+    public let mouse: BehaviorSubject<Mouse?> = BehaviorSubject(value: nil)
     
     public init(defaults: UserDefaults = UserDefaults.standard) {
         self.defaults = defaults
     }
     
-    public func getDevice() -> Mouse? {
-        return mouse
-    }
-    
-    public func findDevice() {
-        if let mouse = getSavedDevice() {
-            let device = define(magicMouse: mouse)
-            set(mouse: device)
-        } else {
-            getDeviceFromServiceName()
+    public func getDevice() -> Observable<Mouse> {
+        return Observable.create { [weak self] observer in
+            if let mouse = self?.findDevice() {
+                observer.onNext(mouse)
+            } else {
+                observer.onError(ConnectError.notFound)
+            }
+            observer.onCompleted()
+            return Disposables.create()
         }
     }
     
-    func getDeviceFromServiceName() {
-        guard let devices = IOBluetoothDevice.pairedDevices() else { return }
+    public func findDevice() -> Mouse? {
+        if let mouse = getSavedDevice() {
+            let device = define(magicMouse: mouse)
+            self.mouse.onNext(device)
+            return device
+        } else {
+            return getDeviceFromServiceName()
+        }
+    }
+    
+    func getDeviceFromServiceName() -> Mouse? {
+        guard let devices = IOBluetoothDevice.pairedDevices() else { return nil }
         
         for item in devices {
             if let device = item as? IOBluetoothDevice, let services = device.services {
@@ -54,14 +66,18 @@ public class MouseTrackingService: MouseTrackingServicable {
                     if let serviceRecord = service as? IOBluetoothSDPServiceRecord,
                         serviceRecord.getServiceName() == identifier {
                         save(device: device)
-                        set(mouse: define(magicMouse: device))
+                        let device = define(magicMouse: device)
+                        self.mouse.onNext(device)
+                        return device
                     }
                 }
             }
         }
+        
+        return nil
     }
     
-    private func define(magicMouse device: Device) -> Mouse {
+    func define(magicMouse device: Device) -> Mouse {
         var mouse = Mouse(device: device, state: .unknown)
         
         if device.isPaired() && device.isConnected() {
@@ -79,13 +95,14 @@ public class MouseTrackingService: MouseTrackingServicable {
 // MARK: - Setters / Getters
 extension MouseTrackingService {
     public func update(state: MouseState) {
-        if var mouse = mouse {
-            mouse.state = state
+        do {
+            if var mouse = try self.mouse.value() {
+                mouse.state = state
+                self.mouse.onNext(mouse)
+            }
+        } catch {
+            return
         }
-    }
-    
-    func set(mouse: Mouse) {
-        self.mouse = mouse
     }
     
     func save(device: IOBluetoothDevice) {
