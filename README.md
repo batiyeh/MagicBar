@@ -1,6 +1,6 @@
 
 
-<img src="https://github.com/batiyeh/MagicBar/blob/master/MagicBar/Assets.xcassets/AppIcon.appiconset/MagicBarAppIcon-64.png"> 
+<img src="https://github.com/batiyeh/MagicBar/blob/master/MagicBar/Assets.xcassets/AppIcon.appiconset/MagicBarAppIcon-256.png" width="64px"> 
 
 # MagicBar
 A MacOS (v10.10 and up) menu bar app for connecting to your Magic Mouse via keyboard shortcut
@@ -19,7 +19,13 @@ Simple - MagicBar is able to find your Magic Mouse without you having to select 
 
 Once you run the app with a paired Magic Mouse then MagicBar will be able to connect and even re-pair the device in the future (no more dropping the connection when switching between machines! :clap:) 
 
-All you need is a keyboard shortcut. By default its `cmd + shift + m`. Feel free to change it in the settings.
+All you need is a keyboard shortcut.
+
+`cmd + shift + m`: Connect to your Magic Mouse
+
+`cmd + shift + option + m`: Disconnect from your Magic Mouse
+
+Option to change keyboard shortcuts coming soon.
 
 
 ## Building Locally
